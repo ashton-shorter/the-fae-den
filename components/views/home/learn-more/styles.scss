@@ -1,0 +1,145 @@
+@import '../../../../styles/globals.scss';
+
+.learnMore {
+    background: white;
+    padding-bottom: 25px;
+    padding-top: 50px;
+    overflow: hidden;
+    width: 100%;
+
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        width: 80vw;
+        font-size: 25px;
+        font-weight: bold;
+    }
+    
+    button {
+        width: 325px;
+        padding: 15px;
+        
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        background-color: black;
+        color: rgb(255, 227, 103);
+    
+        border-radius: 5px;
+        box-shadow: 0 10px 10px black;
+    
+        font-family: 'FairyDust';
+        font-size: 30px;
+
+        transition: all .5s;
+        &:hover {
+            background: $aqua;
+            color: black;
+            text-shadow: 0 0 3px rgb(254, 255, 199), 0 0 5px rgb(7, 7, 7), 0 0 5px rgb(253, 250, 80);
+            box-shadow: 0 10px 10px black;
+        }
+    }
+
+    &__section {
+        text-align: center;
+        width: 80vw;
+    }
+
+    &__header {
+        padding-bottom: 40px;
+        font-family: 'FairyDust';
+        font-weight: 100;
+        font-size: 43px;
+        text-shadow: 0 5px 5px rgb(56, 56, 56);
+    }
+
+    &__description {
+        color: inherit;
+        text-shadow: inherit;
+        font-family: 'Saudagar';
+        font-size: 27.5px;
+    }
+}
+
+#learnMore__btn {
+    text-decoration: none;
+    position: relative;
+    bottom: -150px;
+    right: -195px;
+
+    padding: 15px;
+    width: 325px;
+
+    background: black;
+    color: white;
+
+    text-shadow: 0 3px 5px $purpler;
+    box-shadow: 0px 0px 20px rgb(119, 0, 255);
+
+    font-family: 'FairyDust';
+    font-size: 30px;
+
+    margin-top: 105px;
+
+    transition: all .5s;
+
+    &:hover {
+        border-right: none;
+        background: white;
+        color: black;
+    }
+}
+
+//#region Responsive Scaling
+@media screen and (max-width: 625px) {
+    .learnMore {
+        gap: 15px;
+        p { font-size: 22px; }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .learnMore {
+        p { font-size: 20px; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .learnMore {
+        &__header { font-size: 35px; }
+        p { font-size: 20px; }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .learnMore {
+        &__header { font-size: 28px; }
+
+        p { font-size: 17px;}
+        button { font-size: 28px; width: 275px;}
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .learnMore {
+        &__header { font-size: 28px; }
+
+        p { font-size: 17px;}
+        button { position: relative; left: -10px}
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .learnMore {
+        button {
+            font-size: 22px; 
+            left: -5px;
+            width: 250px;
+        }
+    }
+}
+//#endregion Responsive Scaling
+

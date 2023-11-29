@@ -1,0 +1,112 @@
+@import 'styles/globals.scss';
+// Container
+.banner {
+    position: relative;
+    width: 100vw;
+    height: 700px;
+    overflow: hidden;
+}
+
+// Imagery
+.video {
+    height: 700px;
+    width: 100%;
+    object-fit: cover; // fill for video
+    // filter: hue-rotate(230deg); // 120deg 140deg 210deg 250deg 350deg;
+}
+
+// Text
+.motto {
+    width: 25%;
+    @include text;
+    text-shadow: 0 0 5px rgb(236, 253, 0), 0 0 5px rgb(7, 7, 7), 0 0 5px rgb(255, 145, 2);
+    font-family: "FairyDust";
+    font-size: 70px;
+    font-weight: 100;
+
+    text-align: center;
+    letter-spacing: 1rem;
+
+    transition: all .5s;
+
+    &__container {
+        position: absolute;
+        top: 40%;
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+h2 {
+    font-size: 90px;
+}
+
+// Ampersand
+#and {
+    color: white;
+    // margin-top: 0px;
+    &:hover {
+        cursor: default;
+        text-shadow: 0 0 5px rgb(236, 253, 0), 0 0 5px rgb(7, 7, 7), 0 0 5px rgb(255, 145, 2);
+    }
+}
+
+//#region Responsive Styles
+@media (max-width: 1500px) {
+    .motto, h2 { font-size: 50px; }
+}
+
+@media (max-width: 1050px) {
+    .banner { height: 500px; }
+    
+    .video { height: 500px; }
+
+    .motto, h2 {
+        margin-top: 25px;
+        letter-spacing: .8rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .banner { height: 400px; }
+    
+    .video { height: 400px; }
+
+    .motto, h2 {
+        margin-top: 35px;
+        font-size: 40px;
+        letter-spacing: .6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner { height: 300px; }
+    
+    .video { height: 300px; }
+
+    .motto, h2 {
+        margin-top: 45px;
+        font-size: 30px;
+        letter-spacing: .4rem;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .motto, h2 {
+        margin-top: 53px;
+        font-size: 22px;
+        letter-spacing: .4rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .motto, h2 {
+        margin-top: 53px;
+        font-size: 20px;
+        letter-spacing: .2rem;
+    }
+}
+//#endregion Responsive Styles

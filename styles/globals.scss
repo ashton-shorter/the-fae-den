@@ -1,0 +1,104 @@
+$purple: rgb(120, 93, 182);
+$purpler: rgb(94, 56, 182);
+$blue: rgb(91, 93, 209);
+$aqua: rgb(252, 238, 161);//rgb(93, 216, 56);
+$aquar: rgb(249, 253, 0);
+$green: rgb(143, 253, 0);
+
+@font-face {
+    font-family: "Affistory";
+    src: local("Affistory"), url(/fonts/Affistory.ttf);
+}
+
+@font-face {
+    font-family: "FairyDust";
+    src: local("FairyDust"), url(/fonts/FairyDust.ttf);
+}
+
+@font-face {
+    font-family: "Saudagar";
+    src: local("Saudagar"), url(/fonts/Saudagar.ttf);
+}
+
+@font-face {
+    font-family: "SunFlower";
+    src: local("SunFlower"), url(/fonts/SunFlower.ttf);
+}
+
+@mixin text {
+    color: white;
+    text-shadow: 0 0 3px rgb(253, 255, 111), 0 0 4px rgb(7, 7, 7), 0 0 4px rgb(255, 145, 2);
+
+    &:hover {
+        cursor: pointer;
+        color: $aqua;
+        text-shadow: 0 0 5px rgb(249, 253, 0), 0 0 10px rgb(7, 7, 7), 0 0 10px rgb(255, 145, 2);
+    }
+}
+
+@mixin abundance {
+    color: $green;
+    text-shadow: 0 3px 3px black, 0 1px 5px forestgreen, 0 1px 6px $green;
+}
+
+@mixin btn {
+    margin-top: 5vh;
+    outline: none;
+    border: none;
+
+    padding: 15px;
+    width: 325px;
+    
+    
+    background-color: $purple;
+    color: black;
+
+    border: 1px solid $purple;
+    border-radius: 5px;
+    box-shadow: 0 0 10px $purpler;
+
+    font-family: 'FairyDust';
+    font-size: 30px;
+
+    transition: all .5s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: black;
+        border: 1px solid $purple;
+        color: $purple;
+    }
+}
+
+@mixin btnInvert {
+    margin-top: 5vh;
+    outline: none;
+    border: none;
+
+    padding: 15px;
+    width: 325px;
+    
+    
+    background-color: black;
+    color: $aqua;
+    // text-shadow: 0 0 5px rgb(249, 253, 0), 0 0 5px rgb(7, 7, 7), 0 0 5px rgb(255, 145, 2);
+
+    border: 1px solid $aqua;
+    border-radius: 5px;
+    // box-shadow: 0 0px 3px $green, 0 0px 20px $aqua;
+
+    font-family: 'FairyDust';
+    font-size: 30px;
+
+    transition: all .5s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: black;
+        border: 1px solid $green;
+        color: rgb(255, 227, 103);
+        text-shadow: 0 0 5px rgb(249, 253, 0), 0 0 5px rgb(7, 7, 7), 0 0 5px rgb(255, 145, 2);
+
+        box-shadow: 0 0 3px $green, 0 0 20px $aqua;
+    }
+}

@@ -1,0 +1,517 @@
+@import '../../../styles/globals.scss';
+
+$height: 750px;
+
+@keyframes fadeIn {
+    0% {
+        transform: translate(-50%, 0%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+.popup {
+    height: $height; width: 900px;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    
+    padding-bottom: 0px;
+
+    transform: translate(-50%, -50%);
+
+    animation: fadeIn .2s ease;
+
+    background: rgba(0, 0, 0, 1);
+
+    box-shadow: 0 0px 20px white, 0 0px 20px $aqua, 0 0px 20px $aqua;
+
+    z-index: 10;
+}
+
+.close {
+    z-index: 10;
+    position: absolute;
+    top: -7%;
+    right: 1.5%;
+
+    @include btnInvert;
+    width: 65px;
+
+    padding-left: 20px;
+
+    font-size: 50px;
+
+    color: white;
+
+    text-shadow: 0 0 5px black;
+    border: none;
+    background: none;
+    box-shadow:none;
+
+    &:hover {
+        color: $aqua;
+        border: none;
+        background: none;
+        box-shadow:none;
+    }
+}
+
+.title {
+    text-align: center;
+    position: relative;
+    top: 9%;
+    left: 48.8%;
+    transform: translate(-47%, -50%);
+    width: 480px;
+    padding: 25px;
+
+    font-family: 'Saudagar';
+    font-size: 85px;
+
+    color: white;
+    text-shadow: 0 5px 5px black;
+}
+
+.email {
+    position: absolute;
+    right: 2.5%;
+    top:  20%;
+}
+
+.inputs {
+    position: absolute;
+    left: 11%;
+    top:  15%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.filledInput {
+    background: $aqua;
+}
+
+.input {
+    margin-left: 25px;
+    height: 30px;
+    width: 250px;
+    margin-top: 43px;
+
+    padding: 10px;
+
+    font-family: 'FairyDust';
+    font-size: 23px;
+
+    text-align: center;
+
+    outline: none;
+    border: none;
+
+    color: white;
+    text-shadow: 0 0px 5px black;
+
+    background: linear-gradient(to right, $purple, rgba(0,0,0,.1));
+    border-radius: 5px;
+
+    &__title {
+        text-align: center;
+        margin-top: 27px;
+        margin-bottom: -13px;
+        margin-left: 40px;
+        font-family: 'Saudagar';
+        font-size: 35px;
+        color: white;
+        
+    }
+
+    transition: all .5s;
+
+    &:hover {
+        background: linear-gradient(to right, white, rgba(0,0,0,.1));
+    }
+
+    &:focus {
+        background: linear-gradient(to right, white, rgba(0,0,0,.1));
+    }
+}
+
+.subject {
+    height: 30px; width: 250px;
+
+    &__text {
+        font-size: 30px;
+        color: black;
+    }
+}
+
+.message {
+    position: absolute;
+    right: 6%;
+    top: 24%;
+    
+    &__title {
+        // position: absolute;
+        // top: -21.5%;
+        right: 30%;
+        font-family: 'Saudagar';
+        font-size: 35px;
+        color: white;
+    }
+
+    &__input {
+        resize: none;
+        outline: none;
+        border: none;
+
+        box-shadow: 0 0px 15px $purple;
+        text-shadow: 0 5px 10px black;
+
+        height: 332px; width: 290px;
+        padding: 20px 20px; 
+        line-height: 28px;
+        margin-bottom: 10px;
+
+        font-family: 'FairyDust';
+        font-weight: 100;
+        font-size: 24px;
+
+        transition: all .5s;
+
+        &:hover {
+            box-shadow: 0 0px 35px $purple;
+        }
+    }
+}
+
+.submit {
+    position: absolute;
+    bottom: 30px;
+    left: 51%;
+
+    transform: translate(-50%, -20%);
+
+    @include btnInvert;
+}
+
+//#region Responsive Scaling
+@media (max-width: 1024px) {
+    .popup {
+        height: 700px; width: 65vw;
+        top: 57%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title {
+        padding: 0;
+        margin: 0;
+        width: 40vw;
+        position: relative;
+        top: 45px;
+        font-size: 50px;
+    }
+
+    .inputs {
+        position: relative;
+        top: -43px;
+        left: -13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input {
+        height: 20px;
+        width: 300px;
+        margin-top: 5px;
+
+        &__title {
+            width: 300px;
+            font-size: 30px;
+        }
+
+        &__container {
+            height: 90px;
+        }
+    }
+
+    .message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        position: relative;
+        right: -1%;
+        top: -6%;
+    
+        &__title {
+            width: inherit;
+            text-align: center;
+            position: relative;
+            top: 0%;
+            left: 1%;
+            font-size: 30px;
+            color: white;
+        }
+    
+        &__input {
+            height: 175px;
+            position: relative;
+            top: 0%;
+
+            font-size: 22px;
+        }
+    }
+
+    .submit {
+        bottom: 2px;
+    }
+}
+
+@media (max-width: 550px) {
+    .close {
+        font-size: 35px;
+    }
+
+    .title {
+        top: 40px;
+        font-size: 45px;
+    }
+
+    .input {
+        height: 16px;
+        width: 215px;
+
+        &__title {
+            font-size: 30px;
+        }
+    }
+
+    .message {
+        top: -40px;
+        left: 1px;
+        &__title {
+            left: 10px;
+            font-size: 28px;
+        }
+        &__input {
+            width: 275px; height: 150px;
+            font-size: 17px;
+        }
+    }
+
+    .submit {
+        width: 240px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .popup {
+        height: 700px; width: 80vw;
+    }
+
+    .inputs { left: 0px; }
+    .input {
+        position: relative;
+        left: 26px;
+        &__title {
+            position: relative;
+            left: -10px;
+            font-size: 27px;
+        }
+    }
+
+    .message {
+        &__input {
+            width: 225px; height: 150px;
+            font-size: 17px;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .title {
+        top: 30px;
+        font-size: 35px;
+    }
+
+    .inputs { top: -35px;}
+    .input {
+        &__title {
+            position: relative;
+            left: -10px;
+            font-size: 27px;
+        }
+    }
+
+    .message {
+        top: -25px;
+        &__input {
+            width: 175px; height: 175px;
+            font-size: 17px;
+        }
+    }
+
+    .submit {
+        bottom: 12px;
+    }
+}
+//#endregion Responsive Scaling
+//#region Fire Handling
+$fireColor: rgb(255,80,0);
+$fireColorT: rgba(255,80,0,0);
+$dur: 1s;
+$blur: 0.02em;
+$fireRad: 3em;
+$parts: 50;
+$partSize: 5em;
+
+
+.fire {
+	font-size: 24px;
+	filter: blur($blur);
+	-webkit-filter: blur($blur);
+	margin-bottom: 200px;
+	position: absolute;
+    top: 65%;
+    left: 50%;
+	width: 10em;
+	height: 12em;
+}
+
+.particle {
+	animation: rise $dur ease-out forwards;
+    background-image: radial-gradient(rgb(68, 0, 255) 20%,rgba(68, 0, 255, 0) 70%);
+	border-radius: 50%;
+	mix-blend-mode: screen;
+	opacity: 0;
+	position: absolute;
+	bottom: 0;
+	width: $partSize;
+	height: $partSize;
+    
+	// spread particles out in time and x-position to get desired effect
+	@for $p from 1 through $parts {
+		&:nth-of-type(#{$p}) {
+			animation-delay: $dur * random();
+			left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
+		}
+	}
+}
+
+.burn {
+    height: $height; width: 900px;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    padding-bottom: 0px;
+
+    transform: translate(-50%, -50%);
+
+    animation: burnPaper 1.6s linear forwards;
+
+    background: rgb(255, 255, 255, .9);
+
+    box-shadow: 0 0px 20px red, 0 0px 20px red, 0 0px 20px red;
+    border-bottom: 5px solid rgb(255,80,0);
+
+    transition: all .5s;
+
+    z-index: 10;
+
+    > * {
+        display: none;
+    }
+
+    > .fire {
+        display: block;
+        margin-left: -100px;
+    }
+}
+
+@keyframes stopFire {
+    0%{
+        display: block;
+    }
+
+    100% {
+        display: none;
+    }
+    
+}
+
+@keyframes burnPaper {
+    0% {
+        height: $height;
+        margin-top: 0px;
+
+        box-shadow: 0px 0px 50px $purpler, 0 0px 20px $purpler, 0 0px 20px $purpler;
+        border-bottom: 5px solid $purple;
+    }
+
+    20% {
+        height: $height;
+        background: rgba(176, 125, 235, 0.9);
+        margin-top: 0px;
+        width: 800px;
+    }
+
+    50% {
+        width: 600px;
+        background: rgba(107, 68, 250, 0.9);
+    }
+
+    70% {
+        box-shadow: 0px 0px 20px $purple, 0 0px 20px $purple, 0 0px 20px $purple;
+    }
+
+    100% {
+        background: red;
+        height: 0; width: 0px;
+        margin-top: -400px;
+        display: none;
+        border: none;
+        box-shadow: 0 0px 20px red, 0 0px 20px red, 0 0px 20px red;
+        border-bottom: 5px solid rgb(255,80,0);
+    }
+}
+
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(0em) scale(1);
+        
+	}
+	25% {
+		opacity: 1;
+        transform: translateX(15em) scale(1);
+	}
+    50% {
+        transform: translateX(-15em) scale(1);
+        position: absolute;
+	    bottom: 10%;
+    }
+    60% {
+        padding: 50px;
+        position: absolute;
+	    bottom: 50%;
+    }
+    75% {
+        transform: translateY(-5em) scale(1);
+        padding: 10px;    
+    }
+	to {
+		opacity: 0;
+		transform: translateY(-15em) scale(0);
+        background-image: radial-gradient($fireColor 20%,$fireColorT 70%);
+        
+	}
+}
+
+//#endregion Fire Handling

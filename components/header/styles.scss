@@ -1,0 +1,169 @@
+@import '../../styles/globals.scss';
+
+h1 {    // Title Styles
+    @include text;
+
+    font-weight: 400;   // counter h1 bold
+    font-size: 55px;
+
+    color: white;
+    text-shadow: 0 0 3px rgb(253, 255, 111), 0 0 4px rgb(7, 7, 7), 0 0 4px rgb(255, 145, 2);
+
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+        transition: all .5s;
+    }
+}
+
+.wand {
+    color: white;
+
+    &:hover {
+        color: rgb(255, 233, 111);
+    }
+}
+
+p { // All menu items excluding title
+    @include text;
+    color: white;
+    text-align: center;
+
+    width: 11vw;
+
+    transition: all .5s;
+    &:hover {
+        cursor: pointer;
+        transition: all .5s;
+    }
+}
+
+.header {
+    //#region Header Styles
+    height: 100px; width: 100vw;
+    position: fixed;
+    top: 0px;
+
+    display: flex;
+    justify-content: right;
+
+    font-family: 'FairyDust';
+    font-size: 35px;
+
+    background-color: black;
+    background: linear-gradient(to bottom, black 85%, rgba(0, 0, 0, 0));
+    z-index: 500;
+    //#endregion Header Styles
+    &__logo {   // Holds the title and wand
+        display: flex;
+        position: absolute;
+        top: 12px;
+        left: 3vw;
+
+        font-size: 55px;
+    }
+
+    &__menu { // Holds all items except title
+        position: relative;
+        right: 35px;
+
+        margin-top: 26px;
+        height: 50px;
+
+        display: flex;
+        justify-content: space-evenly;
+
+        &__cart {   // Holds the cart(badge & icon)
+            cursor: pointer;
+            transition: all .5s;
+
+            padding-left: 25px;
+            margin-top: -.3vh;
+        }
+    }
+}
+
+#header__menu__cart {   // The cart styles themselves
+    color: white;
+    &:hover {
+        color: tan;
+    }
+
+    &:focus {
+        color: rgb(255, 230, 91);
+    }
+}
+
+//#region responsive scaling
+@media (max-width: 1200px) {    // Adjust Menu left
+    .header {
+        &__menu {
+            position: absolute;
+            left: 35vw;
+        }
+    }
+}
+
+@media (max-width: 1024px) { // Layer title on top of menu items
+    .header {
+        height: 160px; // adjust height to display menu items below header
+    
+        &__logo { // Center logo on top row
+            position: absolute;
+            top: 12px;
+            
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__menu { // Reposition menu items to second row
+            width: 100vw;
+            position: absolute;
+            top: 60px;
+            left: 0;
+        }
+    }
+}
+
+@media (max-width: 650px) { // Adjust spacing between menu items
+    .header {
+        p {
+            padding-right: 50px;
+        }
+    }
+}
+
+@media (max-width: 500px) { // Adjust font sizes
+    .header {
+        justify-content: left;
+        &__menu {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 450px) { // Fine tuning of cart position
+    .header {
+        &__menu {
+            &__cart {
+                padding-left: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) { // Readjust font sizes and spacing for all mobile devices <= 400 px
+    p { font-size: 25px; }
+    h1 { font-size: 35px; }
+    .wand {
+        position: relative;
+        top: -15px;
+        left: 10px;
+    }
+    .header {
+        &__logo { left: 0px; }
+    }
+}
+//#endregion responsive scaling

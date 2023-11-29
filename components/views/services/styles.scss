@@ -1,0 +1,564 @@
+@import '../../../styles/globals.scss';
+
+//#region Animations
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+@keyframes fadeInPageAnimation {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+@keyframes showHide {
+    0% {width:50%; opacity: 0;}
+    100% {width:100%; opacity: 1}
+}
+
+@keyframes borderAnim {
+    0% {
+        border-top: 2px solid $purpler;
+    }
+    25% {
+        border-right: 2px solid $purpler;
+    }
+    50% {
+        border-bottom: 2px solid $purpler;
+    }
+    75% {
+        border-left: 2px solid $purpler;
+    }
+    100% {
+        border: 2px solid $purpler;
+    }
+}
+//#endregion Animations
+
+$margin: 60px;
+
+.services {
+    color: white;
+    padding-bottom: 100px;
+    background-color: black;
+    
+    position: relative;
+
+    padding-top: $margin;
+
+    overflow: hidden;
+    margin-bottom: -50px;
+
+    width: 100%;
+
+    animation: fadeInPageAnimation ease 1s;
+
+    &__title {
+        font-family: 'Affistory';
+        font-size: 55px;
+        font-weight: 100;
+
+        margin-top: $margin + 40px;
+        margin-bottom: $margin;
+
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        animation: showHide ease 1s;
+
+        color: white;
+        text-shadow: 0 0 3px rgb(253, 255, 111), 0 0 4px rgb(7, 7, 7), 0 0 4px rgb(255, 145, 2);
+    }
+
+    &__container {
+        animation: fadeInAnimation ease 3s;
+        font-family: 'Saudagar';
+        font-size: 22px;
+        font-weight: 100;
+        
+        display: grid;
+        grid-column-gap: 5vw;
+        grid-row-gap: 9vh;
+        grid-template-columns: repeat(2, 42vw);
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 80px 110px 80px;
+        border: 2px solid rgb(29, 29, 29);
+
+        height: 600px;
+        position: relative;
+
+        transition: all ease-out 1s;
+        &:hover {
+            cursor: pointer;
+            animation: borderAnim ease 5s forwards;
+            color: white;
+            text-shadow: 0 0 3px rgb(253, 255, 111), 0 0 4px rgb(7, 7, 7), 0 0 4px rgb(255, 145, 2);
+        }
+    }
+
+    &__header {
+        font-family: 'FairyDust';
+        font-size: 45px;
+        font-weight: 100;
+        width: 125%;
+        color: white;
+        text-shadow: 0 0 3px rgb(253, 255, 111), 0 0 4px rgb(7, 7, 7), 0 0 4px rgb(255, 145, 2);
+    }
+
+    &__price {
+        font-size: 65px;
+        font-weight: 100;
+        font-family: 'FairyDust';
+        position: relative;
+        top: calc($margin/4);
+        margin-right: 5px;
+        
+        @include abundance;
+    }
+
+    &__description {
+        margin-top: $margin;
+        display: flex;
+        align-items: center;
+        height: 350px;
+        text-align: center;
+
+        font-size: 25px;
+        font-weight: bold;
+        width: inherit;
+    }
+
+    &__addToCart {
+        position: absolute;
+        bottom: $margin;
+        color: $purple;
+
+        transition: all .5s;
+        &:hover {
+            color: $green;
+        }
+    }
+
+    &__inquire {
+        position: absolute;
+        bottom: $margin;
+
+        @include btnInvert;
+    }
+}
+
+#services__last {
+    &__details {
+        width: 80.5vw;
+        height: 420px;
+        display: flex;
+    }
+
+    &__description {
+        font-size: 25px;
+        font-weight: bold;
+        width: 30vw;
+        height: 150px;
+    }
+}
+
+//#region Responsive Scaling
+@media screen and (max-width: 1700px) {
+    .services {
+        &__description {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            height: 275px;
+    
+            color: white;
+
+            width: 40vw;
+    
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+
+    #services__last {
+        &__details { width: 78.5vw; }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .services {
+        &__details {height: 500px;}
+        &__header {
+            width: 135%;
+            font-size: 36px;
+        }
+        &__description {
+            font-size: 22px;
+        }
+
+        &__price {
+            font-size: 50px;
+        }
+    }
+
+    #services__last {
+        &__details {
+            width: 78vw;
+            height: 350px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .services {
+        &__header {
+            font-size: 45px;
+        }
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 75px;
+            width: 90vw;
+            margin-left: 4.5vw;
+        }
+
+        &__details {
+            height: 450px;
+            width: 74.5vw;
+        }
+
+        &__description {
+            font-size: 25px;
+            width: 80vw;
+        }
+
+        &__price {
+            top: -15px;
+        }
+    }
+
+    #services__last {
+        &__description { width: 60vw; }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .services {
+        &__title {
+            margin-top: 150px;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            gap: 75px;
+            width: 90vw;
+            margin-left: 3.8vw;
+        }
+
+        &__details { width: 74vw; }
+
+        &__description {
+            font-size: 23px;
+            width: 80vw;
+        }
+    }
+
+    #services__last {
+        &__details { width: 74vw; }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .services {
+        &__container {
+            margin-left: 3.5vw;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .services {
+        &__container {
+            margin-left: 3vw;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .services {
+        &__container {
+            margin-left: 2.5vw;
+        }
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .services {
+        &__container {
+            margin-left: 2.2vw;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .services {
+        &__title {
+            margin-left: -5px;
+            font-size: 45px;
+            width: 100vw;
+        }
+
+        &__container {
+            margin-left: 1.7vw;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .services {
+        &__title {
+            font-size: 45px;
+        }
+
+        &__header {
+            font-size: 38px;
+        }
+
+        &__container {
+            margin-left: 5.6vw;
+        }
+
+        &__details {
+            height: 450px;
+            width: 65vw;
+        }
+
+        &__description {
+            font-size: 22px;
+            width: 80vw;
+        }
+    }
+
+    #services__last {
+        &__details {
+            width: 65vw;
+        }
+
+        &__description {
+            font-size: 23px;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .services {
+        &__title {
+            font-size: 42px;
+        }
+
+        &__header { font-size: 35px; }
+
+        &__container {
+            margin-left: 4vw;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .services {
+        &__title {
+            font-size: 35px;
+        }
+
+        &__container {
+            margin-left: 2.1vw;
+        }
+
+        &__details {
+            height: 400px;
+        }
+
+        &__header { font-size: 30px;}
+
+        &__description { font-size: 18px; height: 250px;}
+    }
+
+    #services__last {
+        &__description { font-size: 18px; }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .services {
+        &__container {
+            margin-left: 5.5vw;
+        }
+
+        &__details { width: 55vw; }
+    }
+
+    #services__last {
+        &__details { width: 55vw; }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .services {
+        &__title {
+            font-size: 30px;
+        }
+
+        &__container { margin-left: 4vw; }
+
+        &__details { height: 325px;}
+
+        &__header { font-size: 22px; }
+
+        &__description { font-size: 16px; }
+
+        &__price {
+            font-size: 35px;
+        }
+
+        &__inquire {
+            width: 250px; height: 50px;
+            padding: 0;
+        }
+    }
+
+    #services__last {
+        &__details {
+            width: 56vw;
+            height: 325px;
+        }
+
+        &__description {
+            font-size: 16px;
+            width: 60vw;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .services {
+        padding-bottom: 35px;
+        &__title {
+            font-size: 28px;
+            margin-left: 0;
+            margin-top: 75px;
+            margin-bottom: 20px;
+        }
+
+        &__container { margin-left: 8vw; gap: 30px;}
+
+        &__details { height: 375px; width: 45vw;}
+
+        &__header { font-size: 22px; }
+
+        &__description { font-size: 16px; }
+
+        &__price { font-size: 35px; }
+
+        &__inquire {
+            width: 250px; height: 50px;
+            padding: 0;
+        }
+    }
+
+    #services__last {
+        &__details {
+            width: 45vw;
+            height: 375px;
+        }
+
+        &__description {
+            font-size: 16px;
+            width: 80vw;
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .services {
+        &__title { font-size: 23px; }
+
+        &__container { margin-left: 6vw; }
+
+        &__details { height: 325px; }
+
+        &__header { font-size: 18px; }
+
+        &__description { font-size: 14px; height: 190px;}
+
+        &__price { font-size: 30px; margin-top: calc($margin/2)}
+    }
+
+    #services__last {
+        &__details { height: 325px; }
+
+        &__description { font-size: 14px; }
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .services {
+        &__container { margin-left: 3.5vw; }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .services {
+        &__container { margin-left: 1.5vw; }
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .services {
+        &__title { font-size: 20px; }
+
+        &__container { margin-left: 5.5vw; }
+
+        &__details { height: 250px; width: 35vw;}
+
+        &__header { font-size: 12px; }
+
+        &__description { font-size: 11px; height: 190px;}
+
+        &__price { font-size: 30px; margin-top: calc($margin/2)}
+
+        &__inquire {
+            font-size: 20px;
+            width: 200px;
+        }
+    }
+
+    #services__last {
+        &__details { height: 250px; width: 35vw; }
+
+        &__description { font-size: 14px; }
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .services {
+        &__container { margin-left: 3.5vw; }
+    }
+}
+//#endregion Responsive Scaling
