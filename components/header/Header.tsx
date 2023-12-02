@@ -47,13 +47,13 @@ const Header = (props: IHeader) => {
             </div>
 
             <div className='header__menu'>
-                <Link to='products' style={{textDecoration: 'none'}}><p style={{color: GetStyles('/products')}}>Products</p></Link>
-                <Link to='services' style={{textDecoration: 'none'}}><p style={{color: GetStyles('/services')}}>Services</p></Link>
+                <Link to='products' style={{textDecoration: 'none'}}><p className='header__menu__item' style={{color: GetStyles('/products')}}>Products</p></Link>
+                <Link to='services' style={{textDecoration: 'none'}}><p className='header__menu__item' style={{color: GetStyles('/services')}}>Services</p></Link>
                 {/*
                 <Link to='courses' style={{textDecoration: 'none'}}><p style={{color: GetStyles('/courses')}}>Courses</p></Link>
                 <Link to='blog' style={{textDecoration: 'none'}}><p style={{color: GetStyles('/blog')}}>Blog</p></Link>
                 */}
-                <Link to='support' style={{textDecoration: 'none'}}><p style={{color: GetStyles('/support')}}>Support</p></Link>
+                <Link to='support' style={{textDecoration: 'none'}}><p className='header__menu__item' style={{color: GetStyles('/support')}}>Support</p></Link>
                 <div className='header__menu__cart'>
                     <Link to='cart' style={{textDecoration: 'none', color: GetStyles('/cart')}} id='header__menu__cart'>
                         <Badge badgeContent={props.cartQuantity} sx={cartBadgeStyle}>

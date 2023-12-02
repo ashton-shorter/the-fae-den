@@ -59,6 +59,14 @@
 		transform: rotate3d(0, 0, 1, 90deg);
 }
 
+p {
+    &:hover {
+        cursor: default;
+        color: inherit;
+        text-shadow: inherit;
+    }
+}
+
 .support {
     background-color: black;
 

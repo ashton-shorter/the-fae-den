@@ -333,9 +333,27 @@ $margin: 70px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &:hover {
+            color: inherit;
+            text-shadow: inherit;
+            cursor: default;
+        }
     }
 
     transition: all .5s;
+
+    
+}
+
+.products__category__item__description {
+    transition: none;
+    &:hover {
+        transition: none;
+        cursor: default;
+        color: inherit;
+        text-shadow: inherit;
+    }
 }
 
 //#region Responsive Scaling

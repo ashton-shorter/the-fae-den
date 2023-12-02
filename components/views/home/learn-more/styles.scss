@@ -11,12 +11,6 @@
     gap: 20px;
     flex-direction: column;
     align-items: center;
-
-    p {
-        width: 80vw;
-        font-size: 25px;
-        font-weight: bold;
-    }
     
     button {
         width: 325px;
@@ -57,10 +51,19 @@
     }
 
     &__description {
+        width: 80vw;
+        font-size: 25px;
+        font-weight: bold;
         color: inherit;
         text-shadow: inherit;
         font-family: 'Saudagar';
         font-size: 27.5px;
+
+        &:hover {
+            cursor: default;
+            color: black;
+            text-shadow: none;
+        }
     }
 }
 

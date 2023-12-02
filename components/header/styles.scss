@@ -25,7 +25,7 @@ h1 {    // Title Styles
     }
 }
 
-p { // All menu items excluding title
+.header__menu__item { // All menu items excluding title
     @include text;
     color: white;
     text-align: center;
